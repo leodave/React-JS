@@ -22,7 +22,11 @@ function PostList({showNewPost, onStopPosting}){
                                         onAddPost= {addPostHandler}
                                 /> 
                             :   <ul className="postsList">
-                                    {posts.map((post)=> <Post key={post.body} author={post.name} body={post.body}/>)}
+                                    {posts.map((post)=> <Post 
+                                        key={post.id} 
+                                        id={post.id}
+                                        author={post.name} 
+                                        body={post.body}/>)}
                                 </ul> 
             } 
          </div>

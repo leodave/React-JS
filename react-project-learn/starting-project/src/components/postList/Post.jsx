@@ -1,9 +1,13 @@
 import "./../../styles/postList.css"
-function Post(props) {
+import { Link } from "react-router-dom";
+function Post({id, name, body}) {
     return (
         <li className= "post">
-            <p className="author">{props.author}</p>
-            <p className="text">{props.body}</p>
+            <Link className= "a" to={id}>
+            <p className="author">{name}</p>
+            <p className="text">{body}</p>
+            </Link>
+           
         </li>
     );
     

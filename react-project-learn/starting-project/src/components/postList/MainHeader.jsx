@@ -7,10 +7,10 @@ import './../../styles/header.css'
 function MainHeader() {
   return (
     <header className="header">
-      <h1 className="logo">
+      <Link to='/'className="logo">
         <MdMessage />
         React Poster
-      </h1>
+      </Link>
       <p>
         <Link to="/create-post" className="button">
           <MdPostAdd size={18} />
