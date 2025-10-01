@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { Link, Form, redirect } from "react-router"
 import "./../styles/newPost.css"
-function NewPost({onCancel, onAddPost}){
-    const [enteredBody, setEnteredBody] = useState('')
+function NewPost(){
+   /* const [enteredBody, setEnteredBody] = useState('')
     const [enteredName, setEnteredName] = useState('')
     
     function enteredBodyHandler(event){
@@ -18,22 +18,36 @@ function NewPost({onCancel, onAddPost}){
         }
         onAddPost(postData);
         onCancel();
-    }
+    }*/
     return(
-        <form className="form" onSubmit={submitHandler}>
+        <Form method='post' className="form">
             <p>
                 <label htmlFor="body">Text</label>
-                <textarea id="body" required rows="10" onChange={enteredBodyHandler}></textarea>
+                <textarea id="body" name="body" required rows="10" ></textarea>
             </p>
             <p>
                 <label htmlFor="name">Your name</label>
-                <textarea type="text" id="name" required onChange={enteredNameHandler}></textarea>
+                <textarea type="text" id="name" name="name" required o></textarea>
             </p>
             <p className="actions">
-                <button type="button" onClick={onCancel}>Cancel</button>
+                <Link to="/" className="cancel" type="button">Cancel</Link>
                 <button>Submit</button>
             </p>
-        </form>
+        </Form>
     );
 }
 export default NewPost;
+
+export async function action({request}){
+    const formData = await request.formData();
+    const postData = Object.fromEntries(formData);
+    await fetch('http://localhost:8081/posts', {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+            'content-Type': 'application/json'
+        }
+    })
+    return redirect('/');
+}
+

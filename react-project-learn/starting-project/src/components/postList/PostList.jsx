@@ -13,16 +13,7 @@ function PostList({showNewPost, onStopPosting}){
         }
         fetchPosts();
     }, [])
-    function addPostHandler(postData){
-        fetch('http://localhost:8081/posts', {
-            method: 'POST',
-            body: JSON.stringify(postData),
-            headers: {
-                'content-Type': 'application/json'
-            }
-        })
-        setPosts((existingPosts => [postData, ...existingPosts]))
-    }
+    
     
     return (
         <div> 

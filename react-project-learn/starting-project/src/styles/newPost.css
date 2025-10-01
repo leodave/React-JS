@@ -30,6 +30,16 @@
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
+    text-decoration: none;
+  }
+  .cancel {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: large;
+    padding-top: 20px;
+    color: aliceblue;
   }
   
   .actions button {
