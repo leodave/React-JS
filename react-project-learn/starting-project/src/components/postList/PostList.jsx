@@ -1,8 +1,7 @@
 import './../../styles/postList.css'
 import Post from './Post';
-import NewPost from '../../pages/NewPost';
 import { useEffect, useState } from 'react';
-function PostList({showNewPost, onStopPosting}){
+function PostList(){
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -17,18 +16,13 @@ function PostList({showNewPost, onStopPosting}){
     
     return (
         <div> 
-            {showNewPost ? < NewPost    
-                                        onCancel = {onStopPosting}
-                                        onAddPost= {addPostHandler}
-                                /> 
-                            :   <ul className="postsList">
-                                    {posts.map((post)=> <Post 
-                                        key={post.id} 
-                                        id={post.id}
-                                        author={post.name} 
-                                        body={post.body}/>)}
-                                </ul> 
-            } 
+              <ul className="postsList">
+                    {posts.map((post)=> <Post 
+                        key={post.id} 
+                        id={post.id}
+                        name={post.name} 
+                        body={post.body}/>)}
+                </ul>  
          </div>
     );
 }
