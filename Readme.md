@@ -1,0 +1,2 @@
+This is a simple react project which allows as to create notes, diplay list of notes, select a single note and delete.
+Has a simple node js back end, but the main idea is how to pass props between components, routing and dynamic passi of params.
